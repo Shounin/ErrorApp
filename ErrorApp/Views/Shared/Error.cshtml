@@ -3,7 +3,9 @@
 @{
     ViewBag.Title = "Error";
 }
-
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+@{
+    string recipientEmail = System.Configuration.ConfigurationManager.AppSettings["Email"];
+}
+<h2 class="text-danger">Error.</h2>
+<h4>An error has occurred, and it's probably your fault.  Error logs have been stored on your computer and sent to <a href="mailto:@recipientEmail">@recipientEmail</a>. <br />An error message should also be available in the output window in Visual Studio.</h4>
 

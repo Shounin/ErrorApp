@@ -16,31 +16,31 @@ namespace ErrorApp.Controllers
 		}
         public ActionResult ErrorMaybe()
         {
-            if (rnd.Next(6) % 5 == 0)
-            {
-                try
+                if (rnd.Next(6) % 5 == 0)
                 {
-                    throw new ArgumentException("Styrmir made a poopie");
+                    try
+                    {
+                        throw new ArgumentException("Styrmir made a poopie");
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger logInstance = new Logger(ex);
+                    }
+                    return View("Error");
                 }
-                catch (Exception ex)
+                else if (rnd.Next(6) % 5 == 1)
                 {
-                    Logger logInstance = new Logger(ex);
+                    try
+                    {
+                        throw new MyApplicationException("Styrmir made a poopie");
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger logInstance = new Logger(ex);
+                    }
+                    return View("Error");
                 }
-                return View("Error");
-            }
-            else if(rnd.Next(6) % 5 == 1)
-            {
-                try
-                {
-                    throw new MyApplicationException("Styrmir made a poopie");
-                }
-                catch (Exception ex)
-                {
-                    Logger logInstance = new Logger(ex);
-                }
-                return View("Error");
-            }
-            return View("Index");
+            return RedirectToAction("Index");
         }
 	}
 }
