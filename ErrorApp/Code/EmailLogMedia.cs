@@ -14,14 +14,13 @@ namespace ErrorApp.Code
 			using ( MailMessage errorEmail = new MailMessage( ) )
 			{
 				string strEmail = ConfigurationManager.AppSettings["Email"];
-				// See above, email address should
-				// be read from appSettings:
+				// Code shamelessly stolen from the book
 				errorEmail.To.Add( strEmail );
 				errorEmail.Subject = "Error Message " + DateTime.Now;
 				errorEmail.Body = message;
 				using( SmtpClient client = new SmtpClient( ) )
 				{
-				client.EnableSsl = true; // Not always necessary
+				client.EnableSsl = true;
 				client.Send( errorEmail );
 				}
 			}
