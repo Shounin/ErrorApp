@@ -19,6 +19,7 @@ textarea {
 .btn-error {
     background-color: red !important;
     border-color: darkred;
+    font-size: 36px;
 }
 /* styles for validation helpers */
 .field-validation-error {
