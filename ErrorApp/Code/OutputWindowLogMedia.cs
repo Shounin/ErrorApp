@@ -11,7 +11,7 @@ namespace ErrorApp.Code
         //RAWR
         public override void LogMessage(string message)
         {
-
+            System.Diagnostics.Debug.WriteLine(message);
         }
     }
 }
