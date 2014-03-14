@@ -9,10 +9,11 @@ namespace ErrorApp.Code
     {
         public Logger(Exception ex)
         {
-            s = "" + Environment.NewLine + "   Time of error -" + (DateTime.Now).ToString();
+            m_append = "" + Environment.NewLine + "-------------------------------------------";
+            m_prepend = "[" + (DateTime.Now).ToString() + "]" + Environment.NewLine;
             LogException(ex);
         }
-        string s;
+        string m_append, m_prepend;
         List<LogMedia> m_loggers = new List<LogMedia> {
         new OutputWindowLogMedia(),
         new EmailLogMedia(),
@@ -22,7 +23,7 @@ namespace ErrorApp.Code
     {
         foreach (LogMedia log in m_loggers)
         {
-            log.LogMessage(ex.ToString() + s);
+            log.LogMessage(m_prepend + ex.ToString() + m_append);
         }
     }
     }

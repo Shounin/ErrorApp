@@ -32,7 +32,7 @@ namespace ErrorApp.Controllers
             {
                 try
                 {
-                    throw new ArgumentException("Styrmir made a poopie");
+                    throw new MyApplicationException("Styrmir made a poopie");
                 }
                 catch (Exception ex)
                 {
