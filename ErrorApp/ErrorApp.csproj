@@ -161,6 +161,7 @@
     <Compile Include="Code\EmailLogMedia.cs" />
     <Compile Include="Code\Logger.cs" />
     <Compile Include="Code\LogMedia.cs" />
+    <Compile Include="Code\MyApplicationException.cs" />
     <Compile Include="Code\TextFileLogMedia.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
